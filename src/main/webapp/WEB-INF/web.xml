@@ -21,19 +21,19 @@
     <display-name>Learn EJB3 and Struts2</display-name>
     <filter>
         <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
         <init-param>
             <param-name>actionPackages</param-name>
             <param-value>com.lq</param-value>
         </init-param>
     </filter>
     <filter>
-        <filter-name>struts-cleanup</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
     </filter>
     <filter>
-        <filter-name>sitemesh</filter-name>
-        <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+        <filter-name>struts-cleanup</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>struts-cleanup</filter-name>
@@ -45,7 +45,11 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>struts2</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/addUserForm.action</url-pattern>
+        <url-pattern>/addUser.action</url-pattern>
+        <url-pattern>/findUserForm.action</url-pattern>
+        <url-pattern>/findUser.action</url-pattern>
+        <url-pattern>/listAllUsers.action</url-pattern>
     </filter-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
